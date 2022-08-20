@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 import org.koin.core.component.KoinComponent
 
 class SharedPreference(androidApplication: Application) : KoinComponent {
-    private val preferenceName = "preferenceDTT"
+    private val preferenceName = "preferenceCharacter"
     private var shared: SharedPreferences
     private var editor: SharedPreferences.Editor? = null
 
@@ -29,5 +29,4 @@ class SharedPreference(androidApplication: Application) : KoinComponent {
         } catch (e: Exception) {
         }
     }
-
 }

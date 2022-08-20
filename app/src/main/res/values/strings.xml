@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CharacterApp</string>
+    <string name="character_title">Character Information</string>
 </resources>

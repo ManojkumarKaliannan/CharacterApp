@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_brightness_6_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_mode.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_character.xml" value="0.10739614994934144" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22083333333333333" />
+        <entry key="app/src/main/res/layout/character_item.xml" value="0.22083333333333333" />
+        <entry key="app/src/main/res/layout/shimmer_item.xml" value="0.22083333333333333" />
+        <entry key="app/src/main/res/layout/shimmer_layout.xml" value="0.22083333333333333" />
       </map>
     </option>
   </component>

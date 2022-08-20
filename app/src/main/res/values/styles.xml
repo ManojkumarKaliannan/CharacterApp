@@ -1,0 +1,19 @@
+<resources>
+    <style name="ItemNameTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/gothamssm_bold</item>
+    </style>
+    <style name="ItemTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/gray_medium</item>
+        <item name="android:fontFamily">@font/gothamssm_medium</item>
+    </style>
+    <style name="TitleTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/gothamssm_bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+</resources>

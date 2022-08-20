@@ -1,6 +1,5 @@
 package com.owow.characterapp.utills
 
-
 object CommonUtils {
     const val  DARK_MODE_ENABLED="DARK_MODE_ENABLED"
     const val  APPLICATION_JSON="application/json"
