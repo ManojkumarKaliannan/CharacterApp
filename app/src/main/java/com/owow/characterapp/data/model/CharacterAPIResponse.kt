@@ -1,6 +1,7 @@
 package com.owow.characterapp.data.model
 
-data class CharacterResponse(
+data class CharacterAPIResponse(
     val info: Info,
     val results: List<Result>
 )
+

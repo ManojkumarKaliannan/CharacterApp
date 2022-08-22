@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.owow.characterapp.BR
 import com.owow.characterapp.R
-import com.owow.characterapp.data.model.Result
 import com.owow.characterapp.databinding.ActivityCharacterBinding
 import com.owow.characterapp.databinding.CharacterItemBinding
+import com.owow.characterapp.domain.entities.CharacterResponse
 import com.owow.characterapp.ui.adapter.BaseRecyclerViewAdapter
 import com.owow.characterapp.ui.base.BaseActivity
 import com.owow.characterapp.ui.base.BaseNavigator
@@ -21,7 +21,7 @@ import org.koin.core.component.inject
 class CharacterListActivity : BaseActivity<ActivityCharacterBinding, CharacterViewModel>(),
     KoinComponent, BaseNavigator {
     private val characterViewModel: CharacterViewModel by viewModel()
-    private lateinit var characterAdapter: BaseRecyclerViewAdapter<Result, CharacterItemBinding>
+    private lateinit var characterAdapter: BaseRecyclerViewAdapter<CharacterResponse, CharacterItemBinding>
     private val sharedPreference: SharedPreference by inject()
 
     override fun getBindingVariable(): Int {
@@ -47,15 +47,14 @@ class CharacterListActivity : BaseActivity<ActivityCharacterBinding, CharacterVi
         observeResponse()
     }
 
-    /** Setting up list adapter*/
     private fun setUpAdapter() {
         characterAdapter = BaseRecyclerViewAdapter(
             R.layout.character_item,
             BR.characterItem, ArrayList(), null
         )
+        getViewDataBinding().rcvCharacter.adapter = characterAdapter
     }
 
-    /** Observing the livedata from viewModel */
     private fun observeResponse() {
         characterViewModel.getCharacterListResponse().observe(this) {
             it?.let {
@@ -65,10 +64,7 @@ class CharacterListActivity : BaseActivity<ActivityCharacterBinding, CharacterVi
                     }
                     Status.SUCCESSFUL -> {
                         characterViewModel.progressLoading.set(false)
-                        it.data?.results?.let { data ->
-                            getViewDataBinding().rcvCharacter.adapter = characterAdapter
-                            characterAdapter.addDataSet(data = data)
-                        }
+                        characterAdapter.addDataSet(data = it.data)
                     }
                     Status.ERROR -> {
                         characterViewModel.progressLoading.set(false)
@@ -76,15 +72,6 @@ class CharacterListActivity : BaseActivity<ActivityCharacterBinding, CharacterVi
                     }
                 }
             }
-        }
-    }
-
-    /** @param darkEnabled-> Enabling the darkMode based on boolean value */
-    private fun setMode(darkEnabled: Boolean) {
-        if (darkEnabled) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
 
@@ -101,4 +88,12 @@ class CharacterListActivity : BaseActivity<ActivityCharacterBinding, CharacterVi
         }
     }
 
+    /** @param darkEnabled-> Enabling the darkMode based on boolean value */
+    private fun setMode(darkEnabled: Boolean) {
+        if (darkEnabled) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
 }
