@@ -6,7 +6,7 @@
 
         <variable
             name="characterItem"
-            type="com.owow.characterapp.data.model.Result" />
+            type="com.owow.characterapp.domain.entities.CharacterResponse" />
 
         <import type="android.view.View" />
     </data>

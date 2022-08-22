@@ -47,10 +47,6 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> :
         return mViewDataBinding!!
     }
 
-    /**
-     * common toast show for all screens
-     *
-     */
     fun putToast(message: String?) {
         Toast.makeText(applicationContext, "" + message, Toast.LENGTH_SHORT).show()
     }
